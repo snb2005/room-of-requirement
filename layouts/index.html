@@ -1,0 +1,40 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="intro">
+    <h1 class="site-title">Technical Notebook</h1>
+    <p class="site-subtitle">Mathematics, Computer Science, and Competitive Programming</p>
+</section>
+
+<section class="posts-list">
+    {{ range first 10 (where .Site.RegularPages "Section" "in" (slice "math" "cs" "cp")) }}
+    <article class="post-preview">
+        <div class="post-meta">
+            {{ if eq .Section "math" }}
+            <span class="post-category category-math">Mathematics</span>
+            {{ else if eq .Section "cs" }}
+            <span class="post-category category-cs">Computer Science</span>
+            {{ else if eq .Section "cp" }}
+            <span class="post-category category-cp">Competitive Programming</span>
+            {{ end }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+        <h2 class="post-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Params.abstract }}
+        <p class="post-abstract">{{ . }}</p>
+        {{ else }}
+        <p class="post-abstract">{{ .Summary }}</p>
+        {{ end }}
+        {{ with .Params.tags }}
+        <div class="post-tags">
+            {{ range . }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </article>
+    {{ end }}
+</section>
+{{ end }}

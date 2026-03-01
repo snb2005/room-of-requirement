@@ -1,0 +1,4 @@
+<div class="math-environment example"
+     {{- with .Get "number" }} data-number="{{ . }}"{{ end }}>
+{{ .Inner | .Page.RenderString }}
+</div>

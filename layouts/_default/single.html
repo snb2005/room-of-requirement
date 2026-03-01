@@ -1,0 +1,30 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="post-content">
+    <header class="post-header">
+        <div class="post-meta">
+            {{ if eq .Section "math" }}
+            <span class="post-category category-math">Mathematics</span>
+            {{ else if eq .Section "cs" }}
+            <span class="post-category category-cs">Computer Science</span>
+            {{ else if eq .Section "cp" }}
+            <span class="post-category category-cp">Competitive Programming</span>
+            {{ end }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.tags }}
+        <div class="post-tags">
+            {{ range . }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </header>
+
+    <section>
+        {{ .Content }}
+    </section>
+</article>
+{{ end }}

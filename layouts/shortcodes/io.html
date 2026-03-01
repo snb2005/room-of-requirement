@@ -1,0 +1,4 @@
+<div class="io-block io-{{ .Get "type" | default "input" }}">
+    <div class="io-label">{{ .Get "label" | default (.Get "type" | title) }}</div>
+    <div class="io-content">{{ .Inner }}</div>
+</div>

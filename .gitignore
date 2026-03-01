@@ -12,6 +12,11 @@ Thumbs.db
 # Logs
 *.log
 
+# Hugo
+public/
+resources/_gen/
+.hugo_build.lock
+
 # Optional: Add if using build tools
 node_modules/
 dist/
@@ -20,3 +25,6 @@ dist/
 # Backup files
 *.bak
 *.backup
+
+# Old HTML files (archived)
+old-html/

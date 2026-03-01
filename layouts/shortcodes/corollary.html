@@ -1,0 +1,5 @@
+<div class="math-environment corollary"
+     {{- with .Get "number" }} data-number="{{ . }}"{{ end }}
+     {{- with .Get "name" }} data-name="{{ . }}"{{ end }}>
+{{ .Inner | .Page.RenderString }}
+</div>

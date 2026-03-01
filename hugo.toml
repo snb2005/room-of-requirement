@@ -1,0 +1,107 @@
+baseURL = 'https://username.github.io/room-of-requirement/'
+languageCode = 'en-us'
+title = 'Technical Notebook'
+
+# Pagination
+paginate = 10
+
+# Permalinks
+[permalinks]
+  math = '/posts/:filename/'
+  cs = '/posts/:filename/'
+  cp = '/posts/:filename/'
+
+# Markup settings
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      wrapStandAloneImageWithinParagraph = false
+    
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xhtml = false
+  
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    style = 'monokai'
+    tabWidth = 4
+
+# Taxonomy configuration
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  
+  [[menu.main]]
+    identifier = 'math'
+    name = 'Math'
+    url = '/categories/math/'
+    weight = 2
+  
+  [[menu.main]]
+    identifier = 'cs'
+    name = 'CS'
+    url = '/categories/cs/'
+    weight = 3
+  
+  [[menu.main]]
+    identifier = 'cp'
+    name = 'CP'
+    url = '/categories/cp/'
+    weight = 4
+  
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 5
+
+# Site parameters
+[params]
+  description = 'A technical blog on Mathematics, Computer Science, and Competitive Programming'
+  author = 'Your Name'
+  dateFormat = 'January 2, 2006'
+  
+  # Math support
+  math = true
+  katex = true
+
+# Build settings
+[build]
+  writeStats = false
+  
+[outputs]
+  home = ['HTML']
+  page = ['HTML']
+  section = ['HTML']
+  taxonomy = ['HTML']
+  term = ['HTML']
