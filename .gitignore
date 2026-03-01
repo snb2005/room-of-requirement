@@ -25,6 +25,3 @@ dist/
 # Backup files
 *.bak
 *.backup
-
-# Old HTML files (archived)
-old-html/
