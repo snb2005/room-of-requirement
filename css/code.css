@@ -1,0 +1,337 @@
+/* ==========================================
+   Code Block Styling
+   ========================================== */
+
+code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--code-bg);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    color: var(--text-primary);
+}
+
+pre {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--code-bg);
+    border-radius: 3px;
+    border: 1px solid var(--divider-color);
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.9rem;
+    display: block;
+}
+
+/* ==========================================
+   Syntax Highlighting (Minimalistic)
+   ========================================== */
+
+/* Light mode syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6a5a4a;
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: #5a4a3a;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+    color: #3d5c4f;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+    color: #5c473d;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+    color: #4a3a2a;
+}
+
+.token.keyword,
+.token.atrule,
+.token.attr-value {
+    color: #5c3d4f;
+}
+
+.token.function,
+.token.class-name {
+    color: #3d4f5c;
+}
+
+.token.regex,
+.token.important {
+    color: #6b5c3d;
+}
+
+.token.important,
+.token.bold {
+    font-weight: 600;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+/* ==========================================
+   Dark Mode Syntax Highlighting
+   ========================================== */
+
+body.dark-mode .token.comment,
+body.dark-mode .token.prolog,
+body.dark-mode .token.doctype,
+body.dark-mode .token.cdata {
+    color: #9a8a7a;
+}
+
+body.dark-mode .token.punctuation {
+    color: #b8a890;
+}
+
+body.dark-mode .token.property,
+body.dark-mode .token.tag,
+body.dark-mode .token.boolean,
+body.dark-mode .token.number,
+body.dark-mode .token.constant,
+body.dark-mode .token.symbol {
+    color: #7ea890;
+}
+
+body.dark-mode .token.selector,
+body.dark-mode .token.attr-name,
+body.dark-mode .token.string,
+body.dark-mode .token.char,
+body.dark-mode .token.builtin {
+    color: #b89878;
+}
+
+body.dark-mode .token.keyword,
+body.dark-mode .token.atrule,
+body.dark-mode .token.attr-value {
+    color: #a87ea8;
+}
+
+body.dark-mode .token.function,
+body.dark-mode .token.class-name {
+    color: #7ea8c8;
+}
+
+body.dark-mode .token.regex,
+body.dark-mode .token.important {
+    color: #c8b87e;
+}
+
+/* ==========================================
+   Language Labels
+   ========================================== */
+
+.code-block-wrapper {
+    position: relative;
+    margin: var(--spacing-md) 0;
+}
+
+.code-language {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background-color: var(--parchment-lighter);
+    padding: 0.25rem 0.6rem;
+    border-bottom-left-radius: 3px;
+    border: 1px solid var(--divider-color);
+    border-top: none;
+    border-right: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.code-block-wrapper pre {
+    margin: 0;
+}
+
+/* ==========================================
+   Input/Output Blocks
+   ========================================== */
+
+.io-block {
+    margin: var(--spacing-md) 0;
+    border: 1px solid var(--divider-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.io-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    background-color: var(--parchment-lighter);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 1px solid var(--divider-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.io-content {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--code-bg);
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.io-input .io-label {
+    color: #3d5c4f;
+}
+
+.io-output .io-label {
+    color: #5c473d;
+}
+
+/* ==========================================
+   Code with Line Numbers
+   ========================================== */
+
+.code-with-lines {
+    display: flex;
+    margin: var(--spacing-md) 0;
+    background-color: var(--code-bg);
+    border: 1px solid var(--divider-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.line-numbers {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background-color: var(--parchment-darker);
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-align: right;
+    color: var(--text-secondary);
+    user-select: none;
+    border-right: 1px solid var(--divider-color);
+    line-height: 1.5;
+}
+
+.code-content {
+    flex: 1;
+    overflow-x: auto;
+}
+
+.code-content pre {
+    margin: 0;
+    border: none;
+    background: none;
+    padding: var(--spacing-md);
+}
+
+/* ==========================================
+   Highlighted Lines
+   ========================================== */
+
+.code-highlight-line {
+    display: block;
+    background-color: rgba(61, 92, 79, 0.08);
+    margin: 0 calc(-1 * var(--spacing-md));
+    padding: 0 var(--spacing-md);
+    border-left: 3px solid var(--accent-color);
+}
+
+body.dark-mode .code-highlight-line {
+    background-color: rgba(126, 168, 144, 0.12);
+}
+
+/* ==========================================
+   Terminal/Command Blocks
+   ========================================== */
+
+.terminal {
+    margin: var(--spacing-md) 0;
+    background-color: #2a2520;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow-subtle);
+}
+
+.terminal-header {
+    background-color: #3a3530;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.terminal-button {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: #5a4a3a;
+}
+
+.terminal-content {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: #d8d0c0;
+    padding: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.terminal-prompt {
+    color: #7ea890;
+}
+
+.terminal-command {
+    color: #e8e0d0;
+}
+
+.terminal-output {
+    color: #b8a890;
+}
+
+/* ==========================================
+   Responsive Code Blocks
+   ========================================== */
+
+@media (max-width: 768px) {
+    pre {
+        padding: var(--spacing-sm);
+    }
+    
+    pre code {
+        font-size: 0.85rem;
+    }
+    
+    .code-with-lines {
+        flex-direction: column;
+    }
+    
+    .line-numbers {
+        border-right: none;
+        border-bottom: 1px solid var(--divider-color);
+        text-align: left;
+    }
+}

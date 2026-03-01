@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prime Number Theorem | Technical Notebook</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/math.css">
+    <link rel="stylesheet" href="../css/code.css">
+    <link rel="stylesheet" href="../css/post.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="../math.html" class="nav-link active">Math</a>
+            <a href="../cs.html" class="nav-link">CS</a>
+            <a href="../cp.html" class="nav-link">CP</a>
+            <a href="../about.html" class="nav-link">About</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">◐</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article class="post-content">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-category category-math">Mathematics</span>
+                    <time datetime="2026-02-28">February 28, 2026</time>
+                </div>
+                <h1>The Prime Number Theorem and Riemann's Contribution</h1>
+                <div class="post-tags">
+                    <span class="tag">Number Theory</span>
+                    <span class="tag">Analysis</span>
+                    <span class="tag">Prime Numbers</span>
+                </div>
+            </header>
+
+            <section>
+                <p>
+                    The distribution of prime numbers has fascinated mathematicians for centuries. 
+                    While primes appear irregularly among the integers, their global distribution 
+                    exhibits remarkable regularity. The Prime Number Theorem quantifies this behavior 
+                    precisely.
+                </p>
+
+                <div class="theorem" data-number="1" data-name="Prime Number Theorem">
+                    <p>Let \(\pi(x)\) denote the number of primes not exceeding \(x\). Then</p>
+                    <div class="numbered-equation">
+                        $$\pi(x) \sim \frac{x}{\ln x}$$
+                        <span class="equation-number">(1)</span>
+                    </div>
+                    <p>as \(x \to \infty\), where \(f(x) \sim g(x)\) means \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = 1\).</p>
+                </div>
+
+                <p>
+                    This result was conjectured independently by Legendre (1798) and Gauss (1792-1793), 
+                    and first proved by Hadamard and de la Vallée Poussin in 1896 using complex analysis.
+                </p>
+
+                <h2>Connection to the Riemann Zeta Function</h2>
+
+                <p>
+                    The key to proving the Prime Number Theorem lies in studying the Riemann zeta function, 
+                    defined for \(\Re(s) > 1\) by
+                </p>
+
+                <div class="numbered-equation">
+                    $$\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}$$
+                    <span class="equation-number">(2)</span>
+                </div>
+
+                <div class="theorem" data-number="2" data-name="Euler Product Formula">
+                    <p>For \(\Re(s) > 1\), we have</p>
+                    $$\zeta(s) = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}}$$
+                    <p>where the product is taken over all prime numbers.</p>
+                </div>
+
+                <div class="proof">
+                    <div class="proof-content">
+                        <p>
+                            For each prime \(p\) and \(\Re(s) > 1\), the geometric series gives
+                            $$\frac{1}{1 - p^{-s}} = \sum_{k=0}^{\infty} p^{-ks}$$
+                        </p>
+                        <p>
+                            Expanding the product over primes \(p_1, p_2, \ldots, p_N\) and using 
+                            unique prime factorization, we obtain
+                            $$\prod_{i=1}^{N} \frac{1}{1 - p_i^{-s}} = \sum_{n \in S_N} \frac{1}{n^s}$$
+                            where \(S_N\) consists of all positive integers whose prime factors are among 
+                            \(p_1, \ldots, p_N\).
+                        </p>
+                        <p>
+                            Taking \(N \to \infty\), the result follows from absolute convergence of \(\zeta(s)\).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="remark">
+                    <p>
+                        The Euler product formula establishes a profound connection between additive 
+                        properties (the sum defining \(\zeta(s)\)) and multiplicative properties 
+                        (prime factorization). This bridge between analysis and number theory is central 
+                        to modern analytic number theory.
+                    </p>
+                </div>
+
+                <h2>Analytic Continuation and the Critical Strip</h2>
+
+                <p>
+                    Riemann showed that \(\zeta(s)\) extends to a meromorphic function on \(\mathbb{C}\) 
+                    with a simple pole at \(s = 1\). The behavior of \(\zeta(s)\) in the critical strip 
+                    \(0 < \Re(s) < 1\) governs the distribution of primes.
+                </p>
+
+                <div class="definition" data-number="1">
+                    <p>
+                        The <strong>critical strip</strong> is the region \(\{s \in \mathbb{C} : 0 < \Re(s) < 1\}\). 
+                        The <strong>critical line</strong> is \(\{s \in \mathbb{C} : \Re(s) = \frac{1}{2}\}\).
+                    </p>
+                </div>
+
+                <div class="theorem" data-number="3" data-name="Riemann Hypothesis">
+                    <p>
+                        All non-trivial zeros of the Riemann zeta function lie on the critical line 
+                        \(\Re(s) = \frac{1}{2}\).
+                    </p>
+                </div>
+
+                <p>
+                    While the Riemann Hypothesis remains unproved, Hadamard and de la Vallée Poussin 
+                    established the weaker result that \(\zeta(s) \neq 0\) for \(\Re(s) = 1\), 
+                    which suffices to prove the Prime Number Theorem.
+                </p>
+
+                <h2>Sketch of Proof</h2>
+
+                <p>The proof proceeds through several steps:</p>
+
+                <div class="lemma" data-number="1">
+                    <p>
+                        Define the Chebyshev function \(\psi(x) = \sum_{p^k \leq x} \ln p\). 
+                        Then the Prime Number Theorem is equivalent to
+                        $$\psi(x) \sim x \quad \text{as } x \to \infty$$
+                    </p>
+                </div>
+
+                <div class="lemma" data-number="2" data-name="Key Analytic Estimate">
+                    <p>
+                        The function \(\psi(x)\) can be expressed using the Perron formula in terms of 
+                        the logarithmic derivative of \(\zeta(s)\):
+                        $$\psi(x) = \frac{1}{2\pi i} \int_{c - iT}^{c + iT} \left(-\frac{\zeta'(s)}{\zeta(s)}\right) \frac{x^s}{s} ds + O\left(\frac{x \ln^2 x}{T}\right)$$
+                        for \(c > 1\) and suitable \(T\).
+                    </p>
+                </div>
+
+                <p>
+                    The crucial step is showing that the integral can be evaluated by shifting the contour 
+                    to the left of \(\Re(s) = 1\). The non-vanishing of \(\zeta(s)\) on \(\Re(s) = 1\) 
+                    ensures that the only pole of the integrand in the region \(\Re(s) \geq 1\) is at 
+                    \(s = 1\), contributing the main term \(x\).
+                </p>
+
+                <div class="example" data-number="1">
+                    <p>
+                        To illustrate the theorem's accuracy, consider \(x = 10^6\). We have:
+                    </p>
+                    <ul style="margin-left: 2rem;">
+                        <li>\(\pi(10^6) = 78{,}498\) (exact count)</li>
+                        <li>\(\frac{10^6}{\ln 10^6} \approx 72{,}382\) (PNT approximation)</li>
+                        <li>Relative error: approximately \(7.8\%\)</li>
+                    </ul>
+                    <p>
+                        The approximation improves as \(x\) increases. For \(x = 10^{10}\), the relative 
+                        error drops below \(2\%\).
+                    </p>
+                </div>
+
+                <h2>Refined Estimates</h2>
+
+                <p>
+                    A more accurate approximation is given by the logarithmic integral:
+                </p>
+
+                <div class="numbered-equation">
+                    $$\text{Li}(x) = \int_2^x \frac{dt}{\ln t}$$
+                    <span class="equation-number">(3)</span>
+                </div>
+
+                <div class="theorem" data-number="4">
+                    <p>We have the stronger asymptotic relation</p>
+                    $$\pi(x) \sim \text{Li}(x)$$
+                    <p>Moreover, assuming the Riemann Hypothesis,</p>
+                    $$\pi(x) = \text{Li}(x) + O(\sqrt{x} \ln x)$$
+                </div>
+
+                <div class="remark">
+                    <p>
+                        The error term improvement under RH is substantial. Without RH, the best known 
+                        unconditional bound is \(O(x \exp(-c\sqrt{\ln x}))\) for some constant \(c > 0\).
+                    </p>
+                </div>
+
+                <h2>Conclusion</h2>
+
+                <p>
+                    The Prime Number Theorem stands as one of the crowning achievements of 19th century 
+                    mathematics, uniting complex analysis with number theory. Riemann's insights into the 
+                    zeta function opened entirely new avenues of research, many of which remain active today.
+                </p>
+
+                <p>
+                    The techniques developed for proving the PNT—analytic continuation, contour integration, 
+                    and the study of zeros of \(L\)-functions—have become fundamental tools throughout 
+                    mathematics, with applications ranging from quantum physics to cryptography.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Technical Notebook. All rights reserved.</p>
+    </footer>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+/* ==========================================
+   Mathematical Typography & Environments
+   ========================================== */
+
+/* KaTeX Display Math */
+.katex-display {
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--spacing-sm) 0;
+}
+
+.katex {
+    font-size: 1.1em;
+}
+
+/* Equation Numbering */
+.numbered-equation {
+    display: flex;
+    align-items: center;
+    margin: var(--spacing-md) 0;
+    position: relative;
+}
+
+.numbered-equation .katex-display {
+    flex: 1;
+    margin: 0;
+}
+
+.equation-number {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    padding-left: var(--spacing-md);
+    min-width: 3rem;
+    text-align: right;
+}
+
+/* ==========================================
+   Mathematical Environments
+   ========================================== */
+
+.math-environment {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background-color: var(--parchment-lighter);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 2px;
+    position: relative;
+}
+
+.math-environment::before {
+    content: attr(data-type);
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Theorem */
+.theorem {
+    border-left-color: #3d5c4f;
+}
+
+.theorem::before {
+    content: 'Theorem';
+    color: #3d5c4f;
+}
+
+.theorem[data-name]::before {
+    content: 'Theorem (' attr(data-name) ')';
+}
+
+.theorem[data-number]::before {
+    content: 'Theorem ' attr(data-number);
+}
+
+.theorem[data-number][data-name]::before {
+    content: 'Theorem ' attr(data-number) ' (' attr(data-name) ')';
+}
+
+/* Lemma */
+.lemma {
+    border-left-color: #5c6b3d;
+}
+
+.lemma::before {
+    content: 'Lemma';
+    color: #5c6b3d;
+}
+
+.lemma[data-name]::before {
+    content: 'Lemma (' attr(data-name) ')';
+}
+
+.lemma[data-number]::before {
+    content: 'Lemma ' attr(data-number);
+}
+
+.lemma[data-number][data-name]::before {
+    content: 'Lemma ' attr(data-number) ' (' attr(data-name) ')';
+}
+
+/* Definition */
+.definition {
+    border-left-color: #5c473d;
+}
+
+.definition::before {
+    content: 'Definition';
+    color: #5c473d;
+}
+
+.definition[data-name]::before {
+    content: 'Definition (' attr(data-name) ')';
+}
+
+.definition[data-number]::before {
+    content: 'Definition ' attr(data-number);
+}
+
+.definition[data-number][data-name]::before {
+    content: 'Definition ' attr(data-number) ' (' attr(data-name) ')';
+}
+
+/* Corollary */
+.corollary {
+    border-left-color: #3d5c5c;
+}
+
+.corollary::before {
+    content: 'Corollary';
+    color: #3d5c5c;
+}
+
+.corollary[data-number]::before {
+    content: 'Corollary ' attr(data-number);
+}
+
+/* Proposition */
+.proposition {
+    border-left-color: #5c3d5c;
+}
+
+.proposition::before {
+    content: 'Proposition';
+    color: #5c3d5c;
+}
+
+.proposition[data-number]::before {
+    content: 'Proposition ' attr(data-number);
+}
+
+/* Remark */
+.remark {
+    background-color: transparent;
+    border-left-color: var(--divider-color);
+    border-left-width: 2px;
+}
+
+.remark::before {
+    content: 'Remark';
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Example */
+.example {
+    background-color: transparent;
+    border-left-color: var(--divider-color);
+    border-left-width: 2px;
+}
+
+.example::before {
+    content: 'Example';
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.example[data-number]::before {
+    content: 'Example ' attr(data-number);
+}
+
+/* ==========================================
+   Proof Environment
+   ========================================== */
+
+.proof {
+    margin: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.proof::before {
+    content: 'Proof.';
+    font-style: italic;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.proof-content {
+    display: inline;
+}
+
+.proof::after {
+    content: '□';
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    vertical-align: text-bottom;
+}
+
+.proof.qed-placed::after {
+    content: '';
+}
+
+.qed {
+    float: right;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================
+   Algorithm & Pseudocode
+   ========================================== */
+
+.algorithm {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background-color: var(--parchment-lighter);
+    border: 1px solid var(--divider-color);
+    border-radius: 2px;
+}
+
+.algorithm-header {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.algorithm-content {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Aligned Equations
+   ========================================== */
+
+.math-align {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+}
+
+.math-align-row {
+    display: flex;
+    align-items: center;
+}
+
+.math-align-row .katex-display {
+    flex: 1;
+    margin: 0;
+}
+
+/* ==========================================
+   Complexity Analysis
+   ========================================== */
+
+.complexity {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--code-bg);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    color: var(--text-primary);
+}
+
+.complexity-block {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--parchment-lighter);
+    border-left: 2px solid var(--accent-color);
+}
+
+.complexity-block strong {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+}
+
+/* ==========================================
+   Mathematical Notation
+   ========================================== */
+
+.notation {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--parchment-lighter);
+    border-left: 2px solid var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.notation strong {
+    font-family: var(--font-heading);
+}
+
+/* ==========================================
+   Dark Mode Adjustments
+   ========================================== */
+
+body.dark-mode .math-environment {
+    background-color: var(--parchment-lighter);
+}
+
+body.dark-mode .theorem {
+    border-left-color: #7ea890;
+}
+
+body.dark-mode .theorem::before {
+    color: #7ea890;
+}
+
+body.dark-mode .lemma {
+    border-left-color: #a8b87e;
+}
+
+body.dark-mode .lemma::before {
+    color: #a8b87e;
+}
+
+body.dark-mode .definition {
+    border-left-color: #b89878;
+}
+
+body.dark-mode .definition::before {
+    color: #b89878;
+}
+
+body.dark-mode .corollary {
+    border-left-color: #7ea8a8;
+}
+
+body.dark-mode .corollary::before {
+    color: #7ea8a8;
+}
+
+body.dark-mode .proposition {
+    border-left-color: #a87ea8;
+}
+
+body.dark-mode .proposition::before {
+    color: #a87ea8;
+}
+
+/* ==========================================
+   Responsive Math
+   ========================================== */
+
+@media (max-width: 768px) {
+    .katex {
+        font-size: 1.05em;
+    }
+    
+    .numbered-equation {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .equation-number {
+        padding-left: 0;
+        padding-top: var(--spacing-xs);
+    }
+    
+    .math-environment {
+        padding: var(--spacing-sm);
+    }
+}

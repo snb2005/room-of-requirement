@@ -1,0 +1,85 @@
+/* Additional CSS for post content styling */
+
+.post-header {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.post-content {
+    line-height: 1.75;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: var(--spacing-md) 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin: 0.5rem 0;
+}
+
+.post-content blockquote {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 3px solid var(--accent-color);
+    background-color: var(--parchment-lighter);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.post-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--divider-color),
+        transparent
+    );
+    margin: var(--spacing-xl) 0;
+}
+
+/* Footnotes */
+.footnotes {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--divider-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.footnotes ol {
+    padding-left: 1.5rem;
+}
+
+/* Back to top link */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--accent-color);
+    color: var(--parchment-bg);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 2px 8px var(--shadow-subtle);
+}
+
+.back-to-top.visible {
+    opacity: 0.7;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
